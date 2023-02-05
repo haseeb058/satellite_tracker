@@ -1,0 +1,29 @@
+@import "./breakpoints.scss";
+@import "./colors.scss";
+@import "./mixin.scss";
+
+.btn {
+  background-color: #2bb572;
+  color: white;
+  text-transform: capitalize;
+  font-weight: 600;
+  height: 40px;
+  border-radius: 4px;
+  letter-spacing: 0.75px;
+  padding: 7px 14px;
+  box-shadow: none;
+  max-width: 120px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+  .loaderClass {
+    width: 24px;
+    height: 24px;
+  }
+}

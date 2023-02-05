@@ -1,0 +1,27 @@
+@import "./breakpoints.scss";
+@import "./colors.scss";
+@import "./mixin.scss";
+
+.mainWrapper {
+  padding: 80px;
+  background: white;
+  color: black;
+  height: 100vh;
+}
+.cardWrapper {
+  padding: 10px 0px;
+  @include gridThree(20, 20);
+  .card {
+    background-color: rgb(69, 89, 156);
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    .imageWrapper {
+      margin: 10px;
+    }
+    .label {
+      margin-top: 20px;
+    }
+  }
+}

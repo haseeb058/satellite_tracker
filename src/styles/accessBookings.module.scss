@@ -1,0 +1,29 @@
+@import "./mixin.scss";
+
+.mainWrapper {
+  padding: 80px;
+  background: white;
+  color: black;
+  height: 100vh;
+  overflow: auto;
+  .tabsWrapper {
+    @include gridTwo(12, 12);
+    button {
+      cursor: pointer;
+      background: white;
+      color: black;
+      border: 1px solid rgba(100, 100, 100, 0.89);
+      border-radius: 5px;
+      padding: 5px;
+      &:hover {
+        background-color: rgb(69, 89, 156);
+        color: white;
+      }
+    }
+  }
+}
+
+.active {
+  background-color: rgb(69, 89, 156) !important;
+  color: white !important;
+}
