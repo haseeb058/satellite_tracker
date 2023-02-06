@@ -1,6 +1,4 @@
 @import "./breakpoints.scss";
-@import "./colors.scss";
-@import "./mixin.scss";
 
 .topnav {
   position: fixed;
@@ -8,31 +6,29 @@
   overflow: hidden;
   padding: 10px;
   background-color: rgb(69, 89, 156);
-}
-
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  text-decoration: underline;
-}
-
-.topnavCentered a {
-  float: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.topnavRight {
-  float: right;
+  a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .topnavCentered {
+    a {
+      float: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .topnavRight {
+    float: right;
+  }
 }
 
 /* Responsive navigation menu (for mobile devices) */

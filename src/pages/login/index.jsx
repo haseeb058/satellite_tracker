@@ -23,6 +23,7 @@ const Login = () => {
               name="email"
               register={register}
               type={"email"}
+              value={"demo@gmail.com"}
               placeholder={"Email"}
               className={style.textField}
               errorMessage={errors?.email?.message}
@@ -30,6 +31,7 @@ const Login = () => {
             <Input
               type="password"
               name="password"
+              value={"demo@gmail.com"}
               placeholder={"Password"}
               register={register}
               className={style.textField}

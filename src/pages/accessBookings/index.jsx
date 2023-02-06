@@ -8,16 +8,22 @@ import style from "../../styles/accessBookings.module.scss";
 const AccessBookings = () => {
   const [status, setStatus] = useState(true);
   const [data, setData] = useState([]);
+  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [counter]);
 
   const getData = async () => {
-    axios
-      .get("http://api.open-notify.org/iss-now.json")
-      .then((res) => setData((prev) => [...prev, res.data]))
-      .catch((e) => console.error(e));
+    if (counter < 20) {
+      axios
+        .get("http://api.open-notify.org/iss-now.json")
+        .then((res) => {
+          setTimeout(() => setCounter(counter + 1), 5000);
+          setData((prev) => [...prev, res.data]);
+        })
+        .catch((e) => console.error(e));
+    }
   };
 
   return (
@@ -36,9 +42,8 @@ const AccessBookings = () => {
           Results Reviewed
         </button>
       </div>
-      {console.log(data)}
       <div className={style.contentWrapper}>
-        {status ? <AgGrid data={data} /> : <div>two</div>}
+        {status ? <AgGrid data={data} /> : <AgGrid data={data} />}
       </div>
     </main>
   );
