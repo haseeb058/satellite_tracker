@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import * as yup from "yup";
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import Button from "../../components/button";
 import Input from "../../components/input";
 
-import { useLogin } from "./helper";
-
 import style from "../../styles/login.module.scss";
 
 const Login = () => {
-  const { onSubmit, handleSubmit, register, errors, isLoading } = useLogin();
+  const { push } = useRouter();
+  const [isLoading, setisLoading] = useState(false);
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(LoginSchema),
+  });
+
+  //on login
+  const onSubmit = async (data) => {
+    setisLoading(true);
+    setTimeout(() => {
+      push("/dashboard");
+      setisLoading(false);
+    }, 1500);
+  };
 
   return (
     <div className={style.main_wrapper}>
@@ -53,3 +73,8 @@ const Login = () => {
 };
 
 export default Login;
+
+export const LoginSchema = yup.object().shape({
+  email: yup.string().email().required(),
+  password: yup.string().required(),
+});
